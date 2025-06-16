@@ -1,0 +1,15 @@
+services:
+  code-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bofice-code-server
+    ports:
+      - "8080:8080"
+    volumes:
+      - /mnt/data/dev:/data/dev
+      - ./code-config:/home/opt
+    restart: unless-stopped
+
+volumes:
+  code-config:
